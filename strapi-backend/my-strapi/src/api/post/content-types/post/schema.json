@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posts",
+  "info": {
+    "singularName": "post",
+    "pluralName": "posts",
+    "displayName": "Post"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "Content": {
+      "type": "blocks"
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Books",
+        "Games",
+        "Movies"
+      ]
+    },
+    "Snippet": {
+      "type": "text",
+      "maxLength": 200
+    }
+  }
+}

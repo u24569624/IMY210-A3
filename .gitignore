@@ -1,0 +1,5 @@
+node_modules/ 
+.env 
+strapi-backend/my-strapi/.env 
+blog/.nuxt 
+blog/dist 
