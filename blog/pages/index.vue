@@ -36,15 +36,22 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h1>Blog Posts</h1>
-    <label for="category">Filter by Category:</label>
-    <select v-model="selectedCategory" @change="fetchPosts">
-      <option value="">All</option>
-      <option v-for="category in categories" :key="category" :value="category">
-        {{ category }}
-      </option>
-    </select>
+  <div id="index">
+
+    <div class="top-bar">
+      <h1>Blog Posts</h1>
+
+      <div class="drop">
+        <label for="category">Filter by Category:</label>
+        <select v-model="selectedCategory" @change="fetchPosts">
+          <option value="">All</option>
+          <option v-for="category in categories" :key="category" :value="category">
+            {{ category }}
+          </option>
+        </select>
+      </div>
+    </div>
+
     <div v-if="posts.length">
       <PostCard
         v-for="post in posts"
@@ -52,7 +59,32 @@ export default {
         :post="post"
       />
     </div>
+
     <p v-else>No posts found.</p>
+
   </div>
 </template>
 
+<style scoped>
+h1{
+  margin:10px 0px;
+  font-weight: 500;
+  font-size: 200%;
+}
+
+.top-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drop{
+  margin:5px;
+}
+
+select{
+  height:40%;
+  width: 30%;
+}
+</style>

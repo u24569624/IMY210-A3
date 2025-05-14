@@ -32,7 +32,7 @@ export default {
 
 .navbar-brand a {
   font-family: "Bitter", serif;
-  font-size: 200%;
+  font-size: 210%;
   font-weight:400;
   color: #fff;
   text-decoration: none;
