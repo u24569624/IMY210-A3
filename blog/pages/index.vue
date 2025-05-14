@@ -52,7 +52,7 @@ export default {
       </div>
     </div>
 
-    <div v-if="posts.length">
+    <div v-if="posts.length" id="i-cards">
       <PostCard
         v-for="post in posts"
         :key="post.id"
@@ -66,25 +66,64 @@ export default {
 </template>
 
 <style scoped>
-h1{
-  margin:10px 0px;
+h1 {
+  margin: 10px 0;
   font-weight: 500;
   font-size: 200%;
+  color: #252627; 
 }
 
-.top-bar{
+.top-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
 }
 
-.drop{
-  margin:5px;
+.drop {
+  margin: 5px;
 }
 
-select{
-  height:40%;
-  width: 30%;
+label {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 400;
+  color: #252627; 
+  margin-right: 8px;
+}
+
+select {
+  height: 30px;
+  width: 150px;
+  font-family: "Source Sans 3", sans-serif;
+  color: #252627;
+  background-color: #F1F1F1; 
+  border: 1px solid #183446; 
+  border-radius: 4px;
+  padding: 5px;
+  transition: border-color 0.2s ease; 
+}
+
+select:focus {
+  outline: none;
+  border-color: #8D6B94; 
+}
+
+#i-cards {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+p {
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: #252627; 
+  text-align: center;
+  margin: 20px 0;
 }
 </style>
