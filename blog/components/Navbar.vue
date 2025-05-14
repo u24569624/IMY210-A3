@@ -1,62 +1,66 @@
-<!-- Chloe Kruger, u24569624 -->
-<script>
-export default {
-  name: 'Navbar',
-};
-</script>
-
 <template>
   <nav class="navbar">
-    <div class="navbar-brand">
-      <nuxt-link to="/">Blog</nuxt-link>
+    <nuxt-link to="/" class="nav-brand">Blog</nuxt-link>
+    <div class="nav-links">
+      <nuxt-link to="/">Home</nuxt-link>
+      <nuxt-link to="/search">Search</nuxt-link>
     </div>
-
-    <ul class="navbar-links">
-      <li><nuxt-link to="/">Home</nuxt-link></li>
-      <li><nuxt-link to="/search">Search</nuxt-link></li>
-    </ul>
-
   </nav>
 </template>
 
 <style scoped>
 .navbar {
-  background-color: #252627;
-  padding: 2%;
+  background-color: #252627; 
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff;
-  box-shadow: 5px 1px 20px #1a1a1a;
+  box-shadow: 0 4px 12px rgba(37, 38, 39, 0.1); 
+  border-bottom: 1px solid #183446; 
 }
 
-.navbar-brand a {
+.nav-brand {
   font-family: "Bitter", serif;
-  font-size: 210%;
-  font-weight:400;
-  color: #fff;
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #F1F1F1; 
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.navbar-links {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
+.nav-brand:hover {
+  color: #8D6B94; 
 }
 
-.navbar-links li {
-  margin-left: 1.5rem;
-}
-
-.navbar-links a {
-  color: #fff;
+.nav-links a {
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #F1F1F1; 
   text-decoration: none;
-  font-size: 115%;
-  font-weight:350;
+  margin-left: 20px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.navbar-links a:hover {
-  color: #c1c1c1;
+.nav-links a:hover {
+  background-color: #8D6B94; 
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+  }
+
+  .nav-links a {
+    margin: 5px;
+  }
 }
 </style>

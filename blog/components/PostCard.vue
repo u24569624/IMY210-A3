@@ -24,65 +24,73 @@ export default {
 </template>
 
 <style scoped>
-p {
-  font-family: "Source Sans 3", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-  color: #252627; 
-  margin: 0.5em 0;
+.post-card {
+  background-color: #F1F1F1; /* Matches palette */
+  border: 1px solid #183446; /* Border from palette */
+  box-shadow: 0 4px 12px rgba(37, 38, 39, 0.1); /* Shadow from _id.vue */
+  padding: 20px;
+  margin: 10px;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 8px; /* Matches _id.vue */
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.post-card:hover {
+  box-shadow: 0 6px 16px rgba(37, 38, 39, 0.15); /* Hover shadow from _id.vue */
+  transform: translateY(-4px); /* Lift effect */
 }
 
 h2 {
   font-family: "Bitter", serif;
-  font-optical-sizing: auto;
+  font-weight: 500; /* Matches _id.vue */
+  font-size: 1.8rem;
+  color: #242627; /* Text color from palette */
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+p {
+  font-family: "Source Sans 3", sans-serif;
   font-weight: 300;
-  font-style: normal;
-  font-size: 180%;
-  margin: 0.5%;
-  color: #252627; 
+  font-size: 1rem;
+  color: #242627; /* Text color from palette */
+  margin: 8px 0;
+  line-height: 1.6;
 }
 
-#author{
-  color: #8f8f8f;
-}
-
-.post-card {
-  background-color: #e9e9e9; 
-  border: 1px solid #1834467b; 
-  border-radius: 8px;
-  margin: 1%;
-  width: 90%;
-  min-height: 200px;
-  padding: 1%;
-  box-shadow: 0 2px 8px rgba(37, 38, 39, 0.1); 
-  transition: transform 0.2s ease, box-shadow 0.2s ease; 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.post-card:hover {
-  transform: translateY(-4px); 
-  box-shadow: 0 4px 12px rgba(37, 38, 39, 0.15); 
+strong {
+  font-weight: 500;
+  color: #242627; /* Text color from palette */
 }
 
 .post-card a {
-  color: #ffffff; 
-  background-color: #8D6B94;
-  text-decoration: none;
+  display: inline-block;
   font-family: "Source Sans 3", sans-serif;
   font-weight: 400;
-  padding: 0.5em 1em;
-  display: inline-block;
-  width: 10%;
-  border-radius: 4px;
-  transition: background-color 0.2s ease, color 0.2s ease; 
+  font-size: 1rem;
+  color: #F1F1F1; /* Button text from palette */
+  background-color: #568EA3; /* Button background from palette */
+  padding: 8px 16px;
+  border-radius: 6px; /* Matches _id.vue */
+  text-decoration: none;
+  margin-top: 10px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .post-card a:hover {
-  background-color: #8D6B94; 
-  color: #F1F1F1;
+  background-color: #8D6B94; /* Button hover from palette */
+  transform: translateY(-2px); /* Lift effect from _id.vue */
+}
+
+@media (max-width: 600px) {
+  .post-card {
+    padding: 15px;
+    margin: 5px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
 }
 </style>
