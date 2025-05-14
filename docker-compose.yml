@@ -2,7 +2,7 @@ version: '3'
 services:
   strapi:
     build:
-      context: ./strapi-backend/my-strapi
+      context: ./my-strapi
       dockerfile: Dockerfile-strapi
     ports:
       - "1337:1337"
