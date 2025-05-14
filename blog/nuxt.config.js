@@ -25,7 +25,12 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  publicRuntimeConfig: {
+    STRAPI_URL: process.env.STRAPI_URL || 'http://localhost:1337',
+  },
+  privateRuntimeConfig: {
+    STRAPI_URL: process.env.STRAPI_URL || 'http://localhost:1337',
+  },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [

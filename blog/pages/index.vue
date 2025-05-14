@@ -1,4 +1,40 @@
-<!-- pages/index.vue -->
+<!--Chloe Kruger, u24569624 -->
+<script>
+import PostCard from '~/components/PostCard.vue';
+
+export default {
+  components: {
+    PostCard,
+  },
+  data() {
+    return {
+      posts: [],
+      categories: ['Books', 'Movies', 'Games'],
+      selectedCategory: '',
+    };
+  },
+  async mounted() {
+    await this.fetchPosts();
+  },
+  methods: {
+    async fetchPosts() {
+      let url = `${this.$config.STRAPI_URL}/api/posts`;
+      if (this.selectedCategory) {
+        url += `?filters[Category][$eq]=${encodeURIComponent(this.selectedCategory)}`;
+      }
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        this.posts = data.data || [];
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+        this.posts = [];
+      }
+    },
+  },
+};
+</script>
+
 <template>
   <div>
     <h1>Blog Posts</h1>
@@ -20,32 +56,3 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      posts: [],
-      categories: ['Technology', 'Lifestyle', 'Education'],
-      selectedCategory: '',
-    };
-  },
-  async mounted() {
-    await this.fetchPosts();
-  },
-  methods: {
-    async fetchPosts() {
-      let url = 'http://localhost:1337/api/posts';
-      if (this.selectedCategory) {
-        url += `?filters[category][$eq]=${this.selectedCategory}`;
-      }
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        this.posts = data.data;
-      } catch (error) {
-        console.error('Error fetching posts:', error);
-      }
-    },
-  },
-};
-</script>

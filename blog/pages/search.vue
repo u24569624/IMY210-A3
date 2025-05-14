@@ -1,4 +1,5 @@
-<!-- pages/search.vue -->
+<!-- blog/pages/search.vue -->
+<!-- Chloe [Your Surname], u24569624 -->
 <template>
   <div>
     <h1>Search Posts</h1>
@@ -20,7 +21,12 @@
 </template>
 
 <script>
+import PostCard from '~/components/PostCard.vue';
+
 export default {
+  components: {
+    PostCard,
+  },
   data() {
     return {
       posts: [],
@@ -35,12 +41,13 @@ export default {
       }
       try {
         const response = await fetch(
-          `http://localhost:1337/api/posts?filters[$or][0][title][$containsi]=${this.searchQuery}&filters[$or][1][author][$containsi]=${this.searchQuery}`
+          `${this.$config.STRAPI_URL}/api/posts?filters[$or][0][title][$containsi]=${encodeURIComponent(this.searchQuery)}&filters[$or][1][author][$containsi]=${encodeURIComponent(this.searchQuery)}`
         );
         const data = await response.json();
-        this.posts = data.data;
+        this.posts = data.data || [];
       } catch (error) {
         console.error('Error searching posts:', error);
+        this.posts = [];
       }
     },
   },
