@@ -10,7 +10,7 @@ services:
       - DATABASE_CLIENT=sqlite
       - DATABASE_FILENAME=/app/.tmp/data.db
     volumes:
-      - ./strapi-backend/my-strapi:/app
+      - ./my-strapi:/app
     networks:
       - blog-network
 
