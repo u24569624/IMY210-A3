@@ -1,0 +1,32 @@
+version: '3'
+services:
+  strapi:
+    build:
+      context: ./strapi-backend/my-strapi
+      dockerfile: Dockerfile-strapi
+    ports:
+      - "1337:1337"
+    environment:
+      - DATABASE_CLIENT=sqlite
+      - DATABASE_FILENAME=/app/.tmp/data.db
+    volumes:
+      - ./strapi-backend/my-strapi:/app
+    networks:
+      - blog-network
+
+  nuxt:
+    build:
+      context: ./blog
+      dockerfile: Dockerfile-nuxt
+    ports:
+      - "3000:3000"
+    environment:
+      - STRAPI_URL=http://strapi:1337
+    depends_on:
+      - strapi
+    networks:
+      - blog-network
+
+networks:
+  blog-network:
+    driver: bridge
